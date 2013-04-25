@@ -6,7 +6,7 @@ contains exactly one command which will generate documentation for your
 current project in the sub-directory `ND_OUTPUT_DIRECTORY` (default value:
 `Documentation`).
 
-![Natural Docs Output in TextMate](https://raw.github.com/sanssecours/Natural%20Docs.tmbundle/documentation/Preview.png)
+![Natural Docs Output in TextMate](https://raw.github.com/sanssecours/Natural-Docs.tmbundle/documentation/Preview.png)
 
 # Requirements #
 
