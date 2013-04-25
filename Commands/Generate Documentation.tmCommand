@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>saveActiveFile</string>
+	<key>command</key>
+	<string>#!/usr/bin/env bash
+
+# -- Imports ------------------------------------------------------------------
+
+[[ -f "${TM_SUPPORT_PATH}/lib/bash_init.sh" ]] &amp;&amp; \
+    . "${TM_SUPPORT_PATH}/lib/bash_init.sh"
+
+. "${TM_SUPPORT_PATH}/lib/webpreview.sh"
+
+# -- Variables ----------------------------------------------------------------
+
+ND_PROJECT_DIRECTORY="${ND_PROJECT_DIRECTORY:-.nd}"
+ND_OUTPUT_DIRECTORY="${ND_OUTPUT_DIRECTORY:-Documentation}"
+DOCUMENTATION_INDEX="${TM_PROJECT_DIRECTORY}/${ND_OUTPUT_DIRECTORY}/index.html"
+
+# -- Main ---------------------------------------------------------------------
+
+# Set title of HMTL output
+html_header "Natural Docs"
+
+# Work in project directory
+cd "${TM_PROJECT_DIRECTORY}"
+
+# Create Natural Docs project and output directories in current directory if 
+# they do not exist already
+mkdir -p "${ND_PROJECT_DIRECTORY}" "${ND_OUTPUT_DIRECTORY}"
+
+# Run Natural Docs in the current directory
+NaturalDocs -i . \
+    --exclude-input "${ND_OUTPUT_DIRECTORY}" \
+    -o HTML "${ND_OUTPUT_DIRECTORY}" \
+    -p "${ND_PROJECT_DIRECTORY}" &amp;&gt; &gt;(ruby -rtm_parser -eTextMate.parse_errors)
+# If Natural Docs was successfull show the html index file if it exists
+if [ "$?" =  "0" ] &amp;&amp; [ -e "${DOCUMENTATION_INDEX}" ]; then
+    echo "&lt;meta http-equiv='refresh' \
+        content='0;tm-file://${DOCUMENTATION_INDEX}'&gt;"
+fi
+# End page with html footer
+html_footer
+</string>
+	<key>input</key>
+	<string>document</string>
+	<key>inputFormat</key>
+	<string>text</string>
+	<key>keyEquivalent</key>
+	<string>^@h</string>
+	<key>name</key>
+	<string>Generate Documentation</string>
+	<key>outputCaret</key>
+	<string>afterOutput</string>
+	<key>outputFormat</key>
+	<string>html</string>
+	<key>outputLocation</key>
+	<string>newWindow</string>
+	<key>uuid</key>
+	<string>EE71B37E-68A4-415F-BEFA-5C72E881E729</string>
+	<key>version</key>
+	<integer>2</integer>
+</dict>
+</plist>

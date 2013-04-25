@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>contactEmailRot13</key>
+	<string>fnaffrpbhef@s-z.sz</string>
+	<key>contactName</key>
+	<string>René Schwaiger</string>
+	<key>description</key>
+	<string>Support for the &lt;a href="http://www.naturaldocs.org/about.html"&gt;Natural Docs&lt;/a&gt; documentation generator.</string>
+	<key>name</key>
+	<string>Natural Docs</string>
+	<key>uuid</key>
+	<string>890997CF-EE22-417C-A3C4-1145F42B19BE</string>
+</dict>
+</plist>
