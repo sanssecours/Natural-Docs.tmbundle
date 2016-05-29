@@ -37,7 +37,7 @@ NaturalDocs -i . \
     --exclude-input "${ND_OUTPUT_DIRECTORY}" \
     -o HTML "${ND_OUTPUT_DIRECTORY}" \
     -p "${ND_PROJECT_DIRECTORY}" &amp;&gt; &gt;(ruby -rtm_parser -eTextMate.parse_errors)
-# If Natural Docs was successfull show the html index file if it exists
+# If Natural Docs was successful show the html index file if it exists
 if [ "$?" =  "0" ] &amp;&amp; [ -e "${DOCUMENTATION_INDEX}" ]; then
     echo "&lt;meta http-equiv='refresh' \
         content='0;tm-file://${DOCUMENTATION_INDEX}'&gt;"
