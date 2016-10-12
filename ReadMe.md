@@ -27,7 +27,7 @@ Installation via [Homebrew](http://mxcl.github.io/homebrew/):
 
 ```shell
     # TextMate 2
-	cd ~/Library/Application\ Support/Avian/Bundles/
+	cd ~/Library/Application\ Support/TextMate/Bundles/
 	git clone https://github.com/sanssecours/Natural%20Docs.tmbundle.git
 ```
 
